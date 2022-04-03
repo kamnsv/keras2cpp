@@ -1,4 +1,4 @@
-﻿#include "model.h"
+#include "model.h"
 #include "layers/conv1d.h"
 #include "layers/conv2d.h"
 #include "layers/dense.h"
@@ -43,6 +43,7 @@ namespace keras2cpp {
     }
 
     Model::Model(Stream& file) {
+        
         auto count = static_cast<unsigned>(file);
         layers_.reserve(count);
         for (size_t i = 0; i != count; ++i)
@@ -50,9 +51,13 @@ namespace keras2cpp {
     }
 
     Tensor Model::operator()(const Tensor& in) const noexcept {
+        
         Tensor out = in;
-        for (auto&& layer : layers_)
+        for (auto&& layer : layers_){
+            //out.print_shape();
             out = (*layer)(out);
+        }
+            
         return out;
     }
 }

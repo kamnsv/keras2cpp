@@ -1,4 +1,4 @@
-﻿#include "tensor.h"
+#include "tensor.h"
 
 namespace keras2cpp {
     Tensor::Tensor(Stream& file, size_t rank) : Tensor() {
@@ -97,9 +97,9 @@ namespace keras2cpp {
             ++count;
             for (auto step : steps)
                 if (count % step == 0)
-                    printf("]");
+                    printf("]\n");
             if (count != steps[0])
-                printf(", ");
+                printf(",");
         }
         printf("\n");
     }

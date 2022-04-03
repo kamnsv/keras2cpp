@@ -20,4 +20,4 @@ print(prediction)
 
 #save model
 from keras2cpp import export_model
-export_model(model, 'example.model')
+export_model(model, 'my.model')
